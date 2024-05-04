@@ -28,11 +28,12 @@ public class GameMain extends JPanel implements MouseListener{
 	 	 
 	//TODO: create the enumeration for the variable below (GameState currentState)
 	
+	 // Enumeration for game states
 	public enum GameState {
-	    Playing,
-	    Draw,
-	    Cross_won,
-	    Nought_won
+	    Playing, //  Indicates that the game is currently being played. Players are taking turns to make moves.
+	    Draw, // Indicates that the game ended in a draw, meaning that all cells on the game board are filled
+	    Cross_won, // Indicates that Player X has won the game.
+	    Nought_won // Indicates that Player X has won the game.
 	}
 	//HINT all of the states you require are shown in the code within GameMain
 	private GameState currentState; 
@@ -48,7 +49,12 @@ public class GameMain extends JPanel implements MouseListener{
 		
 		// TODO: This JPanel fires a MouseEvent on MouseClicked so add required event listener to 'this'.   
 		
-		addMouseListener(this);
+		addMouseListener(this); 
+		
+		/**  Added mouse listener to handle mouse clicks 
+		 *   this tells the program to pay attention to mouse clicks on the panel
+		 *   upon clicking the mouse the program knows to place either "X" or "O" 
+		 * */
 	    
 	    
 		// Setup the status bar (JLabel) to display status message       
@@ -67,12 +73,12 @@ public class GameMain extends JPanel implements MouseListener{
 		
 		// TODO: Create a new instance of the game "Board"class. HINT check the variables above for the correct name
 		
-		 board = new Board();
+		 board = new Board();  // Creates a new instance of the game board
 
 		
 		//TODO: call the method to initialise the game board
 		 
-		 initGame();
+		 initGame(); // Initializes the game board and starts the game
 
 	}
 	
@@ -86,13 +92,27 @@ public class GameMain extends JPanel implements MouseListener{
 				//TODO: create the new GameMain panel and add it to the frame
 				
 				GameMain gameMain = new GameMain();
+				frame.getContentPane().add(gameMain);
+				
+				/** GameMain gameMain = new GameMain(); creates a new instance of the GameMain class
+				 *  which represents the game panel. Then, frame.getContentPane().add(gameMain); adds this game panel 
+				 *  (gameMain) to the main window (frame) so that it's displayed and can be interacted with by the user. 
+				 */
 						
 				
 				
 				//TODO: set the default close operation of the frame to exit_on_close
 		            
-				frame.getContentPane().add(gameMain);
+				
 	            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	            
+	            /**
+	             *  sets the default close operation for the JFrame frame to exit the application when the frame is closed.
+	             * This means that when the user closes the window, the application will terminate.
+	             */
+	            
+	            
+	            
 				frame.pack();             
 				frame.setLocationRelativeTo(null);
 				frame.setVisible(true);
@@ -113,13 +133,13 @@ public class GameMain extends JPanel implements MouseListener{
 			if (currentPlayer == Player.Cross) {   
 			
 				//TODO: use the status bar to display the message "X"'s Turn
-				statusBar.setText("X's Turn");
+				statusBar.setText("X's Turn");//JLabel to indicate that it's Player X's turn in the Tic Tac Toe game
 
 				
 			} else {    
 				
 				//TODO: use the status bar to display the message "O"'s Turn
-				 statusBar.setText("O's Turn");
+				 statusBar.setText("O's Turn");//JLabel to indicate that it's Player O's turn in the Tic Tac Toe game
 
 				
 			}       
@@ -169,7 +189,8 @@ public class GameMain extends JPanel implements MouseListener{
 			} else if (board.isDraw ()) {
 					
 				// TODO: set the currentstate to the draw gamestate
-				currentState = GameState.Draw;
+				
+				currentState = GameState.Draw;//assigns the value Draw to the currentState variable, indicating that the game has ended in a draw.
 
 			}
 			//otherwise no change to current state of playing
@@ -209,7 +230,8 @@ public class GameMain extends JPanel implements MouseListener{
 		
 		//TODO: redraw the graphics on the UI    
 		
-		repaint();
+		repaint();// tells the program to redraw the game board. It updates what's shown on the screen after each move in the Tic Tac Toe game.
+
 		
 		
            
