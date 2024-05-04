@@ -18,6 +18,13 @@ public class Board {
 		for (int row = 0; row < GameMain.ROWS; ++row) {
 			for (int col = 0; col < GameMain.COLS; ++col) {
 				cells[row][col] = new Cell(row, col);// Create new Cell objects
+				
+		/**
+		 * This code sets up the game board by creating a grid of cells. It first initializes the cells array, which 
+		 * 2D array of Cell objects. It iterates over each row and column of the array and creates a new Cell 
+		 * object at each position, passing the row and column indices to the Cell constructor. This effectively 
+		 * creates a grid of cells for the Tic Tac Toe game, where each cell is represented by a Cell object.
+		  */
 			}
 		}
 	}
@@ -34,6 +41,13 @@ public class Board {
             for (int col = 0; col < GameMain.COLS; ++col) {
                 if (cells[row][col].content == Player.Empty) {
                     return false; // If any cell is empty, it's not a draw
+                    
+                    /**
+                     *  This loop was used to iterate through each cell in the game board and check if it's empty
+                     *  which is need to see if the game has ended in a draw by checking whether there are
+                     *  any more empty cells or not. if none then the game is a draw.
+                     * 
+                     * */
                     
                 }
                 
@@ -52,11 +66,20 @@ public class Board {
 		if(cells[playerRow][0].content == thePlayer && cells[playerRow][1].content == thePlayer && cells[playerRow][2].content == thePlayer )
 			return true; 
 		
+		/**
+		 * This part of the code checks if a player has won by having three consecutive symbols in a row.
+		 * If the symbols of the specified player (thePlayer) are the same in the cells of the same row (playerRow) and
+		 * consecutive columns (0, 1, 2), it means that player has won. This condition checks for a win condition horizontally.
+		 * If this condition is met, the method returns true, indicating that the player has won. 
+		 */
+		
 		 // TODO: Check if the player has 3 in the playerCol.
 		 // Hint: Use the row code above as a starting point, remember that it goes cells[row][column] 
 		if (cells[0][playerCol].content == thePlayer && cells[1][playerCol].content == thePlayer && cells[2][playerCol].content == thePlayer)
 			return true;
 		
+		/**Similar to the above comment this does the same but checks if the player symbols 
+		 * are in the same cells of the same column*/
 		
 		
 		 // 3-in-the-diagonal
@@ -67,6 +90,10 @@ public class Board {
 		// TODO: Check the diagonal in the other direction
 		if (cells[0][2].content == thePlayer && cells[1][1].content == thePlayer && cells[2][0].content == thePlayer)
             return true;
+		
+		/**Similar to the above comment this does the same but checks if the player symbols 
+		 * are in the same cells at position (0, 2), (1, 1), and (2, 0)  which is diagonally from the top right to the bottom left */
+		
 		
 
 		
