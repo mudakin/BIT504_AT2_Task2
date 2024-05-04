@@ -16,10 +16,12 @@ public class Cell {
 		// TODO: Initialise the variables row, col 
 		this.row = row;
         this.col = col;
-			
+		
+        /**sets the row and column of the cell object to specific values provided when creating the cell object.*/
+        
 		//TODO: call the method that sets the cell content to EMPTY
         
-        clear();
+        clear();//sets the content of the cell to empty.
 		 
 	}
 	
@@ -49,7 +51,7 @@ public class Cell {
 	public void clear() {
 		
 		// TODO: Set the value of content to Empty (Remember this is an enum)
-		content = Player.Empty;
+		content = Player.Empty;//This line sets the content of the cell to empty.
 
 		
 	}
